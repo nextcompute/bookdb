@@ -2,11 +2,11 @@
 <div id = "navigation"> <h2>Navigation</h2>  
 
     <table>
-        <th>Page 1 </th>
-        <th>Page 2 </th>
-        <th>Page 3 </th>
-        <th>Page 4 </th>
-        <th>Page 5 </th>
+        <?php 
+        for ($i = 1; $i <= 5; $i++){
+            echo "<th><a href=\"index.php?page=$i\">Page $i</a></th>";
+        }
+        ?>
     </table>
     
 </div>
