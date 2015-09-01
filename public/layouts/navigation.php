@@ -1,7 +1,11 @@
-<?php 
-    $page_title = 'navigation';
+<?php
+    include_once '../includes/functions.php';
+    $page_title = 'home';
     if (isset($_GET['page'])){
         $page_title = $_GET['page'];
+        if ($page_title == 'home'){
+            redirect_to('.');
+        }
     } 
 ?>
 
@@ -9,7 +13,7 @@
 
     <table>
         <?php 
-        $pages = ['entries', 'accounts'];
+        $pages = ['home', 'entries', 'accounts'];
         for ($i = 0; $i < count($pages); $i++){
             echo "<th><a href=\"index.php?page=$pages[$i]\">" . ucfirst($pages[$i]) . "</a></th>";
         }
