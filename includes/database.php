@@ -3,5 +3,16 @@
 class MYSQLDatabase {
     
     private $connection;
-                    }
 
+    public function open_connection() {
+        $this->connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
+        if (!$this->connection) {
+                die("Database connection failed: " . mysqli_error($this->connection));
+        } else {
+                $db_select = mysqli_select_db(DB_NAME, $this->connection);
+                if (!$db_select) {
+                        die("Database selection failed: " . mysqli_error($this->connection));
+                }
+        }
+    }
+}
