@@ -15,4 +15,11 @@ class MYSQLDatabase {
                 }
         }
     }
+    
+    public function close_connection() {
+        if(isset($this->connection)) {
+            mysqli_close($this->connection);
+            unset($this->connection);
+        }
+    }
 }
