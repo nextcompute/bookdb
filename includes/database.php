@@ -14,7 +14,7 @@ class MYSQLDatabase {
         if (!$this->connection) {
                 die("Database connection failed: " . mysqli_error($this->connection));
         } else {
-                $db_select = mysqli_select_db(DB_NAME, $this->connection);
+                $db_select = mysqli_select_db($this->connection, DB_NAME );
                 if (!$db_select) {
                         die("Database selection failed: " . mysqli_error($this->connection));
                 }
