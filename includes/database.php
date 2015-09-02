@@ -26,6 +26,11 @@ class MYSQLDatabase {
             unset($this->connection);
         }
     }
+    
+    public function query($sql){
+        $result = mysqli_query($this->connection, $sql);
+        return $result;
+    }
 }
 
 $database = new MYSQLDatabase();
