@@ -3,6 +3,10 @@
 class MYSQLDatabase {
     
     private $connection;
+    
+    public function __construct() {
+        $this->open_connection();
+    }
 
     public function open_connection() {
         $this->connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
@@ -23,3 +27,6 @@ class MYSQLDatabase {
         }
     }
 }
+
+$database = new MYSQLDatabase();
+$db =& $database;
