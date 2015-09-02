@@ -3,6 +3,7 @@
 class MYSQLDatabase {
     
     private $connection;
+    public $last_query;
     
     public function __construct() {
         $this->open_connection();
@@ -28,8 +29,20 @@ class MYSQLDatabase {
     }
     
     public function query($sql){
+        $this->last_query = $sql;
         $result = mysqli_query($this->connection, $sql);
+        $this->confirm_query($result);
         return $result;
+    }
+    
+    private function confirm_query($result) {
+	if (!$result) {
+                $output = "Database query failed: " ;
+                $output .= mysqli_error($this->connection);
+                $output .= "<br><br>";
+                $output .= "Last SQL Query: " . $this->last_query;
+                die($output);              
+        }
     }
 }
 
