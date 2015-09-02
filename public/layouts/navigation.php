@@ -15,7 +15,7 @@
         <?php 
         $pages = ['home', 'entries', 'accounts'];
         for ($i = 0; $i < count($pages); $i++){
-            echo "<th><a href=\"index.php?page=$pages[$i]\">" . ucfirst($pages[$i]) . "</a></th>";
+            echo "<th><a href=\"index.php?page=" . htmlentities($pages[$i]) . "\">" . ucfirst($pages[$i]) . "</a></th>";
         }
         ?>
     </table>
