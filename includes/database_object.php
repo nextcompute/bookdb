@@ -15,8 +15,8 @@ class DatabaseObject {
     while ($row = $database->fetch_array($result_set)) {
       $object_array[] = self::instantiate($row);
     }
-    return $object_array;
-  }
+        return $object_array;
+    }
 
     private static function instantiate($record) {
     // Could check that $record exists and is an array
@@ -46,6 +46,10 @@ class DatabaseObject {
         }
         return $attributes;
     }
-    
-}
 
+    //returns db_fields
+    public static function table_fields(){
+        return static::$db_fields;
+    }
+
+}
