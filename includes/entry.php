@@ -16,6 +16,19 @@ class Entry extends DatabaseObject {
     
     //Common database methods
     
+    private static function instantiate($record) {
+    // Could check that $record exists and is an array
+        $object = new self;
+		
+        // More dynamic, short-form approach:
+        foreach($record as $attribute=>$value){
+            if($object->has_attribute($attribute)) {
+                $object->$attribute = $value;
+            }
+        }
+        return $object;
+    }
+    
     private function has_attribute($attribute){
     // We don't care about the value, we just want to know if the key exists
     // Will return true or false
