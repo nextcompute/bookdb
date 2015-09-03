@@ -16,6 +16,16 @@ class Entry extends DatabaseObject {
     
     //Common database methods
     
+    public static function find_by_sql($sql="") {
+    global $database;
+    $result_set = $database->query($sql);
+    $object_array = array();
+    while ($row = $database->fetch_array($result_set)) {
+      $object_array[] = self::instantiate($row);
+    }
+    return $object_array;
+  }
+    
     private static function instantiate($record) {
     // Could check that $record exists and is an array
         $object = new self;
