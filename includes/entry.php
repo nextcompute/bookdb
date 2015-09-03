@@ -16,6 +16,10 @@ class Entry extends DatabaseObject {
     
     //Common database methods
     
+    public static function find_all() {
+        return self::find_by_sql("SELECT * FROM ".self::$table_name);
+    }
+    
     public static function find_by_sql($sql="") {
     global $database;
     $result_set = $database->query($sql);
