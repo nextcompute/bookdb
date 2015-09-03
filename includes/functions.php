@@ -11,6 +11,7 @@ function redirect_to( $location = NULL ) {
 function table_headings($fields){
     $output = "";
     $output .= "<tr>";
+    if (!(is_array($fields))){ return $output; }
     foreach ($fields as $field){
         $output .= "<th>";
         $output .= ucwords(str_replace('_', ' ', $field));
@@ -20,8 +21,10 @@ function table_headings($fields){
     return $output;
 }
 
+//Assumes $result_array is with objects
 function table_rows($result_array,$fields){
     $output = "";
+    if (!(is_array($fields))){ return $output; }
     for ($i=0; $i<count($result_array); $i++){
         $output .= "<tr>";
         foreach ($fields as $field){
