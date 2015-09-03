@@ -44,6 +44,11 @@ class MYSQLDatabase {
                 die($output);              
         }
     }
+    
+    // "database-neutral" methods
+    public function fetch_array($result_set) {
+        return mysqli_fetch_array($result_set);
+    }
 }
 
 $database = new MYSQLDatabase();
