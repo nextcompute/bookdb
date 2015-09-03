@@ -14,5 +14,16 @@ class Entry extends DatabaseObject {
     public $created;
     public $description;
     
+    //Common database methods
+    
+    protected function attributes() {
+    // return an array of attribute names and their values
+        $attributes = array();
+        foreach(self::$db_fields as $field) {
+            if(property_exists($this, $field)) {
+                $attributes[$field] = $this->$field;
+            }
+        }
+        return $attributes;
+    }
 }
-
