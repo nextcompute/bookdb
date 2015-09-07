@@ -51,5 +51,16 @@ class DatabaseObject {
     public static function table_fields(){
         return static::$db_fields;
     }
+    
+    //return associative array from object
+    public function object_to_assoc($fields){
+        $assoc = [];
+        if (!(is_array($fields))){ return $assoc; }
+        foreach ($fields as $field){
+            $assoc[] = $this->$field;
+        }
+        return $assoc;
+        
+    }
 
 }
