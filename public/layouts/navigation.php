@@ -13,7 +13,7 @@
 
     <table>
         <?php 
-        $pages = ['home', 'entries', 'accounts_balances'];
+        $pages = ['home', 'entries', 'accounts', 'accounts_balances'];
         for ($i = 0; $i < count($pages); $i++){
             echo "<th><a href=\"index.php?page=$pages[$i]\">" . format_field_name($pages[$i]) . "</a></th>";
         }
