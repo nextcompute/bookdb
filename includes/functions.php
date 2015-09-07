@@ -7,6 +7,11 @@ function redirect_to( $location = NULL ) {
   }
 }
 
+//Return string field name without _ and first letter uppercased.
+function format_field_name($str){
+    return ucwords(str_replace('_', ' ', $str));
+}
+
 //return formatted <th> row.
 function table_headings($fields){
     $output = "";
@@ -14,7 +19,7 @@ function table_headings($fields){
     if (!(is_array($fields))){ return $output; }
     foreach ($fields as $field){
         $output .= "<th>";
-        $output .= ucwords(str_replace('_', ' ', $field));
+        $output .= format_field_name($field);
         $output .= "</th>";
     }
     $output .= "</tr>";

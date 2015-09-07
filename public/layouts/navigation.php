@@ -9,13 +9,13 @@
     } 
 ?>
 
-<div id = "navigation"> <h2><?php echo ucfirst($page_title); ?></h2>  
+<div id = "navigation"> <h2><?php echo format_field_name($page_title); ?></h2>  
 
     <table>
         <?php 
-        $pages = ['home', 'entries', 'accounts'];
+        $pages = ['home', 'entries', 'accounts_balances'];
         for ($i = 0; $i < count($pages); $i++){
-            echo "<th><a href=\"index.php?page=$pages[$i]\">" . ucfirst($pages[$i]) . "</a></th>";
+            echo "<th><a href=\"index.php?page=$pages[$i]\">" . format_field_name($pages[$i]) . "</a></th>";
         }
         ?>
     </table>
