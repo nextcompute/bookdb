@@ -27,5 +27,6 @@ require_once(LIB_PATH.DS.'database_object.php');
 
 // load database-related classes
 require_once(LIB_PATH.DS.'entry.php');
+require_once(LIB_PATH.DS.'account.php');
 require_once(LIB_PATH.DS.'account_balance.php');
 
