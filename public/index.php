@@ -14,19 +14,22 @@ if ($page_title == 'entries') {
 
 $object_array = "";
 $fields = "";
-
+$result_array = [];
 if (isset($class_name)){
 
     $object_array = $class_name::find_all();
     $fields = $class_name::table_fields();
+    for ($i=0; $i<count($object_array); $i++){
+        $result_array[] = $object_array[$i]->object_to_assoc($fields);
+    }
 }
 
 $output = "";
 $output .= "<table width  = 50%>";
 
 $output .= table_headings($fields);
-$output .= table_rows($object_array,$fields);
 
+$output .= table_rows($result_array,$fields);
 $output .= "</table>";
 echo $output;
 
