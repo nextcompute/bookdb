@@ -57,10 +57,10 @@ class DatabaseObject {
         $assoc = [];
         if (!(is_array($fields))){ return $assoc; }
         foreach ($fields as $field){
-            $assoc[] = $this->$field;
+            $assoc[$field] = $this->$field;
         }
         return $assoc;
         
     }
-
+    
 }
