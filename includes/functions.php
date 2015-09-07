@@ -26,15 +26,16 @@ function table_headings($fields){
     return $output;
 }
 
-//Assumes $result_array is with objects
+//Returns table rows for each $field in $result_array
 function table_rows($result_array,$fields){
     $output = "";
     if (!(is_array($fields))){ return $output; }
     for ($i=0; $i<count($result_array); $i++){
         $output .= "<tr>";
+        $result = $result_array[$i];
         foreach ($fields as $field){
             $output .= "<td>";
-            $output .= $result_array[$i]->$field;
+            $output .= $result[$field];
             $output .= "</td>";
         }
         $output .= "</tr>";
