@@ -8,6 +8,8 @@ if ($page_title == 'entries') {
     $class_name = 'Entry';
 } else if ($page_title == 'accounts_balances'){
     $class_name = 'AccountBalance';
+} else if ($page_title == 'accounts'){
+    $class_name = 'Account';
 }
 
 $object_array = "";
@@ -29,4 +31,3 @@ $output .= "</table>";
 echo $output;
 
 include('/layouts/footer.php');
-
