@@ -3,12 +3,12 @@ require_once ('../includes/initialize.php');
 
 include('/layouts/header.php');
 require_once('/layouts/navigation.php');
-//$page_tile is from navigation.php
-if ($page_title == 'entries') {
+//$view_tile is from navigation.php
+if ($view_title == 'entries') {
     $class_name = 'Entry';
-} else if ($page_title == 'accounts_balances'){
+} else if ($view_title == 'accounts_balances'){
     $class_name = 'AccountBalance';
-} else if ($page_title == 'accounts'){
+} else if ($view_title == 'accounts'){
     $class_name = 'Account';
 }
 
