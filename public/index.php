@@ -1,6 +1,8 @@
 <?php
 require_once ('../includes/initialize.php');
 
+include_once('../includes/initialize.php');
+
 include('/layouts/header.php');
 require_once('/layouts/navigation.php');
 //$page_tile is from navigation.php

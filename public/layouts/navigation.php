@@ -15,7 +15,7 @@
         <?php 
         $pages = ['home', 'entries', 'accounts', 'accounts_balances'];
         for ($i = 0; $i < count($pages); $i++){
-            echo "<th><a href=\"index.php?page=$pages[$i]\">" . format_field_name($pages[$i]) . "</a></th>";
+            echo "<th><a href=\"index.php?page=" . htmlentities($pages[$i]) . "\">" . format_field_name($pages[$i]) . "</a></th>";
         }
         ?>
     </table>
