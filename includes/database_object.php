@@ -17,6 +17,14 @@ class DatabaseObject {
     }
         return $object_array;
     }
+    
+    public static function count_all() {
+        global $database;
+        $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+        $result_set = $database->query($sql);
+        $row = $database->fetch_array($result_set);
+        return array_shift($row);
+    }
 
     private static function instantiate($record) {
     // Could check that $record exists and is an array
@@ -46,6 +54,8 @@ class DatabaseObject {
         }
         return $attributes;
     }
+    
+    
 
     //returns db_fields
     public static function table_fields(){
