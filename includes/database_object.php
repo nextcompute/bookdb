@@ -5,7 +5,8 @@ require_once (LIB_PATH.DS.'database.php');
 class DatabaseObject {
 
     public static function find_all() {
-        return self::find_by_sql("SELECT * FROM " . static::$table_name);
+        $sql = "SELECT * FROM " . static::$table_name . self::sql_order();
+        return self::find_by_sql($sql);
     }
 
     public static function find_by_sql($sql="") {
@@ -53,6 +54,14 @@ class DatabaseObject {
             }
         }
         return $attributes;
+    }
+    
+    //return default order by $order_by
+    public static function sql_order (){
+        if (isset(static::$order_by)){
+            return ' ORDER BY ' .static::$order_by;
+            }
+        return "";
     }
     
     //return $table_name
