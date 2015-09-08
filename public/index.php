@@ -30,6 +30,7 @@ if (isset($class_name)){
     
     $pagination = new Pagination($page, $per_page, $total_count);
     $sql = "SELECT * FROM " . $class_name::table_name();
+    $sql .= $class_name::sql_order();
     $sql .= " LIMIT {$per_page} ";
     $sql .= " OFFSET {$pagination->offset()}";
     $object_array = $class_name::find_by_sql($sql);
