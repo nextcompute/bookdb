@@ -55,7 +55,10 @@ class DatabaseObject {
         return $attributes;
     }
     
-    
+    //return $table_name
+    public static function table_name(){
+        return static::$table_name;
+    }
 
     //returns db_fields
     public static function table_fields(){
