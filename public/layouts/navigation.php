@@ -15,7 +15,7 @@
         <?php 
         $views = ['home', 'entries', 'accounts', 'accounts_balances'];
         for ($i = 0; $i < count($views); $i++){
-            echo "<th><a href=\"index.php?view=$views[$i]\">" . format_field_name($views[$i]) . "</a></th>";
+            echo "<th><a href=\"index.php?view=" . htmlentities($views[$i]) . "\">" . format_field_name($views[$i]) . "</a></th>";
         }
         ?>
     </table>
