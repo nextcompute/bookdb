@@ -5,10 +5,12 @@ require_once (LIB_PATH.DS.'database.php');
 class Entry extends DatabaseObject {
    
     protected static $table_name="entries";
-    protected static $db_fields = array('id', 'amount', 'debit_id', 'credit_id', 'created','description');
+    protected static $db_fields = array('id', 'amount', 'debit_id', 'transaction_date','credit_id', 'created','description');
+    protected static $order_by = 'transaction_date';
     
     public $id;
     public $amount;
+    public $transaction_date;
     public $debit_id;
     public $credit_id;
     public $created;
