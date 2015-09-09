@@ -36,7 +36,7 @@ class MYSQLDatabase {
     }
     
     public function escape_value( $value ) {
-       return mysql_real_escape_string( $value );
+       return mysqli_real_escape_string( $value );
     }
     
     private function confirm_query($result) {
