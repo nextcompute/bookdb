@@ -76,6 +76,12 @@ if ($view_title == "entries"){
     if(isset($_POST['submit']) && $_POST['submit']=='Submit'){
         $entry = new Entry();
         echo "<tr>Sumbitted<tr>";
+        $entry->amount = $_POST['amount'];
+        $entry->transaction_date = $_POST['transaction_date'];
+        $entry->debit_id = $_POST['debit_id'];
+        $entry->credit_id = $_POST['credit_id'];
+        $entry->created = $_POST['created'];
+        $entry->description = $_POST['description'];
         $entry->create();
     }
     
