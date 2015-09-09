@@ -41,8 +41,9 @@ if (isset($class_name)){
     }
 }
 ?>
-    <div id="pagination" style="clear: both;">
-    <?php  if(isset($pagination)){
+<div id="pagination" style="clear: both;">
+<?php  
+if(isset($pagination)){
             if($pagination->total_pages() > 1) {
                     if($pagination->has_previous_page()) { 
             echo "<a href=\"index.php?view=$view_title&page=";
@@ -68,8 +69,22 @@ if (isset($class_name)){
                     }
             }
     }
-    ?>
-    </div>
+?>
+</div>
+<?php
+if ($view_title == "entries"){
+?>
+<div id="create">
+    <form action = "index.php?view=<?php echo htmlentities($view_title); ?>"method="POST">
+        <input name="amount" type="number" value=<?php echo 1000*(rand(1,10)); ?>>
+        <input name="transaction_date" type="date" value="<?php echo date("Y-m-d", time());?>">
+        <input name="debit_id" type="number" value=<?php echo 10*(rand(1,30)); ?>>
+        <input name="credit_id" type="number" value=<?php echo 10*(rand(1,30)); ?>>
+        <input name="description" type="text">
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</div>
+<?php }?>
 <?php
 
 $output = "";
