@@ -56,6 +56,17 @@ class DatabaseObject {
         return $attributes;
     }
     
+    protected function sanitized_attributes() {
+        global $database;
+        $clean_attributes = array();
+        // sanitize the values before submitting
+        // Note: does not alter the actual value of each attribute
+        foreach($this->attributes() as $key => $value){
+          $clean_attributes[$key] = $database->escape_value($value);
+        }
+        return $clean_attributes;
+    }
+    
     //return default order by $order_by
     public static function sql_order (){
         if (isset(static::$order_by)){
