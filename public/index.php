@@ -73,6 +73,12 @@ if(isset($pagination)){
 </div>
 <?php
 if ($view_title == "entries"){
+    if(isset($_POST['submit']) && $_POST['submit']=='Submit'){
+        $entry = new Entry();
+        echo "<tr>Sumbitted<tr>";
+        $entry->create();
+    }
+    
 ?>
 <div id="create">
     <form action = "index.php?view=<?php echo htmlentities($view_title); ?>"method="POST">
