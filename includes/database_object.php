@@ -67,6 +67,26 @@ class DatabaseObject {
         return $clean_attributes;
     }
     
+    public function create() {
+        global $database;
+        // Don't forget your SQL syntax and good habits:
+        // - INSERT INTO table (key, key) VALUES ('value', 'value')
+        // - single-quotes around all values
+        // - escape all values to prevent SQL injection
+        $attributes = $this->sanitized_attributes();
+        $sql = "INSERT INTO ".self::$table_name." (";
+              $sql .= join(", ", array_keys($attributes));
+        $sql .= ") VALUES ('";
+              $sql .= join("', '", array_values($attributes));
+              $sql .= "')";
+        if($database->query($sql)) {
+          $this->id = $database->insert_id();
+          return true;
+        } else {
+          return false;
+        }
+    }
+    
     //return default order by $order_by
     public static function sql_order (){
         if (isset(static::$order_by)){
