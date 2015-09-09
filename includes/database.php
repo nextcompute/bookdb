@@ -39,6 +39,11 @@ class MYSQLDatabase {
        return mysqli_real_escape_string($this->connection,$value);
     }
     
+    public function insert_id() {
+        // get the last id inserted over the current db connection
+        return mysqli_insert_id($this->connection);
+    }
+    
     private function confirm_query($result) {
 	if (!$result) {
                 $output = "Database query failed: " ;
