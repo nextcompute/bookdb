@@ -93,6 +93,14 @@ class DatabaseObject {
         }
     }
     
+    protected static function show_fields() {
+        //require_once (LIB_PATH.DS.'field.php');
+        $sql = "SHOW FIELDS FROM " . static::$table_name;
+        $result_set = Field::find_by_sql($sql);
+        return $result_set;
+    }
+    
+    
     //return default order by $order_by
     public static function sql_order (){
         if (isset(static::$order_by)){
