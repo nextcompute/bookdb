@@ -28,6 +28,7 @@ function table_headings($fields){
 
 //Returns table rows for each $field in $result_array
 function table_rows($result_array,$fields){
+    global $view_title;
     $output = "";
     if (!(is_array($fields))){ return $output; }
     for ($i=0; $i<count($result_array); $i++){
@@ -35,7 +36,11 @@ function table_rows($result_array,$fields){
         $result = $result_array[$i];
         foreach ($fields as $field){
             $output .= "<td>";
-            $output .= $result[$field];
+            if ($field == 'id'){
+                $output .= "<a href=\"?view=$view_title&id=$result[$field]\">$result[$field]</a>";
+            } else {
+                $output .= $result[$field];
+            }
             $output .= "</td>";
         }
         $output .= "</tr>";
