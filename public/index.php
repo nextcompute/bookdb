@@ -80,7 +80,6 @@ if ($view_title == "entries"){
         $entry->transaction_date = $_POST['transaction_date'];
         $entry->debit_id = $_POST['debit_id'];
         $entry->credit_id = $_POST['credit_id'];
-        $entry->created = $_POST['created'];
         $entry->description = $_POST['description'];
         $entry->create();
     }
