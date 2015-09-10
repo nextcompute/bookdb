@@ -8,6 +8,12 @@ class DatabaseObject {
         $sql = "SELECT * FROM " . static::$table_name . self::sql_order();
         return self::find_by_sql($sql);
     }
+    
+    public static function find_by_id($id) {
+        $result_array = self::find_by_sql("SELECT * FROM ". static::$table_name 
+                . " WHERE id={$id} LIMIT 1");
+        return !empty($result_array) ? array_shift($result_array) : false;
+    }
 
     public static function find_by_sql($sql="") {
     global $database;
