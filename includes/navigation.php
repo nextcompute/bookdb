@@ -1,4 +1,4 @@
 <?php
-class Navigation {
-    
+class Navigation extends DatabaseObject {
+       
 }
