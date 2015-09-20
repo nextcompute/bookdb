@@ -37,7 +37,7 @@ function table_rows($result_array,$fields){
         foreach ($fields as $field){
             $output .= "<td>";
             if ($field == 'id'){
-                $output .= "<a href=\"?view=$view_title&id=$result[$field]\">$result[$field]</a>";
+                $output .= "<a href=\"?id=$result[$field]\">$result[$field]</a>";
             } else {
                 $output .= $result[$field];
             }
