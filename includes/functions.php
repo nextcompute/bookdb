@@ -48,3 +48,13 @@ function table_rows($result_array,$fields){
     return $output;
 }
 
+//returns <table> formatted records.
+    function display_table($result_array,$fields){
+        $output = "";
+        $output .= "<table width  = 50%>";
+        $output .= table_headings($fields);
+        $output .= table_rows($result_array,$fields);
+        $output .= "</table>";
+        return $output; 
+    }
+
