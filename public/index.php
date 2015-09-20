@@ -2,15 +2,9 @@
 require_once ('../includes/initialize.php');
 
 include('/layouts/header.php');
+$page_name = 'home';
 require_once('/layouts/navigation.php');
 //$view_tile is from navigation.php
-if ($view_title == 'entries') {
-    $class_name = 'Entry';
-} else if ($view_title == 'accounts_balances'){
-    $class_name = 'AccountBalance';
-} else if ($view_title == 'accounts'){
-    $class_name = 'Account';
-}
 
 $object_array = "";
 $fields = "";
@@ -72,7 +66,7 @@ if(isset($pagination)){
 ?>
 </div>
 <?php
-if ($view_title == "entries"){
+if ($page_name == "entries"){
     if(isset($_POST['submit']) && $_POST['submit']=='Submit'){
         $entry = new Entry();
         echo "<tr>Sumbitted<tr>";
