@@ -2,7 +2,7 @@
     include_once (LIB_PATH.DS.'functions.php');
 ?>
 
-<div id = "navigation"> <h2><?php echo format_field_name($page_name); ?></h2>  
+<div id = "navigation">   
     
     <table>
         <?php 
@@ -16,6 +16,7 @@
         }
         ?>
     </table>
+    <h2><?php echo format_field_name($page_name); ?></h2>
     
 </div>
 
