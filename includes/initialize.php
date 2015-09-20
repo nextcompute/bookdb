@@ -24,6 +24,7 @@ require_once(LIB_PATH.DS.'database.php');
 require_once(LIB_PATH.DS.'database_object.php');
 require_once(LIB_PATH.DS.'pagination.php');
 require_once(LIB_PATH.DS.'field.php');
+require_once(LIB_PATH.DS.'navigation.php');
 
 
 
